@@ -14,10 +14,10 @@ Você deve implementar um programa que atenda às seguintes especificações:
 
 3. Crie uma função chamada calcular_custo_total que recebe uma lista de viagens e retorna o custo total de todas as viagens.
 
-4. Na função main, crie uma lista de 3 dicionários com informações sobre as viagens e utilize as funções criadas para calcular e imprimir o custo total das viagens.
+4. Na função main, existe uma lista de 3 dicionários com informações sobre as viagens, utilize as funções criadas para calcular e imprimir o custo total das viagens.
 
 # Exemplo de saída esperada:
-Custo total das viagens: R$ 250.00
+Custo total das viagens: R$ 355.00
 """
 
 
