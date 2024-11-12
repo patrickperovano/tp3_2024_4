@@ -28,7 +28,7 @@ print("Faturamento total:", calcular_faturamento(jogos))
 listar_jogos(jogos)
 
 # Saída esperada:
-# Faturamento total: 849850.00
+# Faturamento total: 1449700.00
 # Jogos lançados no último ano: Jogo A, Jogo C
 """
 
