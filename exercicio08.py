@@ -39,11 +39,11 @@ def main():
     print("Lista de Alunos Inicial:")
     listar_alunos(alunos)
 
-    adicionar_aluno("Ricardo", 23, "Engenharia de Software")
+    adicionar_aluno(alunos, "Ricardo", 23, "Engenharia de Software")
     print("\nApós adicionar Ricardo:")
     listar_alunos(alunos)
 
-    remover_aluno("Carlos")
+    remover_aluno(alunos, "Carlos")
     print("\nApós remover Carlos:")
     listar_alunos(alunos)
 

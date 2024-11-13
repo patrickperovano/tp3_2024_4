@@ -26,7 +26,7 @@ def calcular_custo_viagem(distancia, tarifa):
 
 
 def calcular_custo_total(viagens):
-    return None
+    return -123456789.0
 
 
 def main():
