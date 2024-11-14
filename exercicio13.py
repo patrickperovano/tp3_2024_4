@@ -6,7 +6,7 @@ Você foi designado para criar uma lista de quadrados de números. Para isso, si
 
 2. Use list comprehesion para gerar essa lista de quadrados.
 
-3. No final, a função deve imprimir a lista resultante.
+3. No final, a função deve retornar a lista resultante.
 
 # Exemplo de uso:
 

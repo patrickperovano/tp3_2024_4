@@ -33,7 +33,7 @@ Por exemplo, com um deslocamento de 3,
 
 Porém, com uma técnica de análise de frequência, podemos tentar descobrir o deslocamento utilizado e, assim, decifrar a mensagem.
 
-Neste exercício, você deve implementar uma função chamada quebrar_cifra_cesar que recebe uma mensagem criptografada e tenta quebrar a cifra utilizando a análise de frequência das letras na língua portuguesa (ou outra língua à sua escolha). A função deve retornar o deslocamento encontrado e a mensagem decifrada.
+Neste exercício, você deve implementar uma função chamada quebrar_cifra_cesar que recebe uma mensagem criptografada e tenta quebrar a cifra utilizando a análise de frequência das letras na língua portuguesa. A função deve retornar o deslocamento encontrado e a mensagem decifrada.
 
 Dicas:
 - As letras mais frequentes na língua portuguesa são, em ordem: 'A', 'E', 'O', 'S', 'R', 'I', 'D', 'T', 'N'.

@@ -32,6 +32,7 @@ def main():
         "Vasco",
         "Fluminense",
     ]
+    # Inicialize um dicionário com 0 para todos os times
     classificacao = {}
 
     # Exemplo de atualização de pontuação
