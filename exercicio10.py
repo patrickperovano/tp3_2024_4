@@ -34,16 +34,18 @@ listar_jogos(jogos)
 
 
 def adicionar_jogo(jogos, nome, info):
-    pass
-
+    jogos[nome] = info
 
 def calcular_faturamento(jogos):
-    return 0
-
+    faturamento_total = 0
+    for info in jogos.values():
+        faturamento_total += info['preco'] * info['vendas']
+    return faturamento_total
 
 def listar_jogos(jogos):
-    pass
-
+    ano_atual = 2023
+    jogos_ultimo_ano = [nome for nome, info in jogos.items() if info['ano_lancamento'] == ano_atual]
+    print("Jogos lançados no último ano:", ", ".join(jogos_ultimo_ano))
 
 def main():
     jogos = {
@@ -52,9 +54,8 @@ def main():
     }
 
     adicionar_jogo(jogos, "Jogo C", {"preco": 39.99, "vendas": 15000, "ano_lancamento": 2023})
-    print("Faturamento total:", calcular_faturamento(jogos))
+    print("Faturamento total: R$", calcular_faturamento(jogos))
     listar_jogos(jogos)
-
 
 if __name__ == "__main__":
     main()

@@ -20,14 +20,14 @@ Você deve implementar um programa que atenda às seguintes especificações:
 Custo total das viagens: R$ 355.00
 """
 
-
 def calcular_custo_viagem(distancia, tarifa):
-    return None
-
+    return distancia * tarifa
 
 def calcular_custo_total(viagens):
-    return -123456789.0
-
+    custo_total = 0
+    for viagem in viagens:
+        custo_total += calcular_custo_viagem(viagem['distancia'], viagem['tarifa'])
+    return custo_total
 
 def main():
     viagens = [
@@ -38,7 +38,6 @@ def main():
 
     custo_total = calcular_custo_total(viagens)
     print(f"Custo total das viagens: R$ {custo_total:.2f}")
-
 
 if __name__ == "__main__":
     main()

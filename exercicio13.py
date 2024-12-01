@@ -15,16 +15,13 @@ Se n for 5, a saída deve ser:
 
 """
 
-
 def calcular_quadrados(n):
-    return None
-
+    return [i ** 2 for i in range(1, n + 1)]
 
 def main():
     n = int(input("Digite um número inteiro: "))
     quadrados = calcular_quadrados(n)
     print("Lista de quadrados:", quadrados)
-
 
 if __name__ == "__main__":
     main()

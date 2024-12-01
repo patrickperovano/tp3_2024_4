@@ -11,24 +11,20 @@ Um restaurante deseja manter um registro dos pratos do dia e seus preços. Você
 Teste seus métodos criando inicialmente o cardápio e realizando algumas operações.
 """
 
-# Exemplo de uso:
-
-
 def adicionar_prato(cardapio, nome, preco):
-    pass
-
+    cardapio[nome] = preco
 
 def remover_prato(cardapio, nome):
-    pass
-
+    if nome in cardapio:
+        del cardapio[nome]
 
 def listar_pratos(cardapio):
-    pass
-
+    for nome, preco in cardapio.items():
+        print(f"{nome}: R$ {preco:.2f}")
 
 def atualizar_preco(cardapio, nome, novo_preco):
-    pass
-
+    if nome in cardapio:
+        cardapio[nome] = novo_preco
 
 def main():
     cardapio = {"Lasanha": 25.00, "Pizza": 30.00, "Hamburguer": 22.00, "Salada": 15.00, "Sopa": 10.00}
@@ -47,7 +43,6 @@ def main():
     atualizar_preco(cardapio, "Pizza", 35.00)
     print("\nApós atualizar o preço de 'Pizza':")
     listar_pratos(cardapio)
-
 
 if __name__ == "__main__":
     main()

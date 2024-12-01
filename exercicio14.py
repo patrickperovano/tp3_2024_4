@@ -10,15 +10,13 @@ Siga os passos abaixo:
 O resultado final deve ser impresso, mostrando a lista de nomes das pessoas que são maiores de idade.
 """
 
-
 def main():
     pessoas = {"Alice": 21, "Bob": 17, "Charlie": 19, "Diana": 16, "Eve": 22}
 
     # Use list comprehension para criar a lista maiores_de_idade
-    maiores_de_idade = []
+    maiores_de_idade = [nome for nome, idade in pessoas.items() if idade >= 18]
 
     print("Maiores de idade:", maiores_de_idade)
-
 
 if __name__ == "__main__":
     main()

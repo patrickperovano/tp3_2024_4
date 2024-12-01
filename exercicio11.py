@@ -10,14 +10,17 @@ Você foi solicitado a criar um programa que simula uma tabela de classificaçã
 
 """
 
-
 def atualizar_pontuacao(classificacao, time, pontos):
-    pass  # Implemente a lógica para atualizar a pontuação
-
+    if time in classificacao:
+        classificacao[time] += pontos
+    else:
+        classificacao[time] = pontos
 
 def exibir_classificacao(classificacao):
-    pass  # Implemente a lógica para exibir a tabela de classificação
-
+    classificacao_ordenada = sorted(classificacao.items(), key=lambda x: (-x[1], x[0]))
+    print("Tabela de Classificação:")
+    for time, pontos in classificacao_ordenada:
+        print(f"{time}: {pontos} pontos")
 
 def main():
     times = [
@@ -33,7 +36,7 @@ def main():
         "Fluminense",
     ]
     # Inicialize um dicionário com 0 para todos os times
-    classificacao = {}
+    classificacao = {time: 0 for time in times}
 
     # Exemplo de atualização de pontuação
     atualizar_pontuacao(classificacao, "Flamengo", 3)
@@ -48,7 +51,6 @@ def main():
     atualizar_pontuacao(classificacao, "Fluminense", 2)
 
     exibir_classificacao(classificacao)
-
 
 if __name__ == "__main__":
     main()

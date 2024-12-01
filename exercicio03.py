@@ -13,16 +13,28 @@ texto = "Python é uma linguagem de programação. Python é amplamente utilizad
 O resultado esperado para a função contar_frequencia deve ser um dicionário com a contagem de cada palavra.
 """
 
+import string
 
 def contar_frequencia(texto):
-    return None
-
+    # Remover pontuações
+    texto = texto.translate(str.maketrans("", "", string.punctuation))
+    # Converter para minúsculas
+    texto = texto.lower()
+    # Dividir o texto em palavras
+    palavras = texto.split()
+    # Contar a frequência de cada palavra
+    frequencia = {}
+    for palavra in palavras:
+        if palavra in frequencia:
+            frequencia[palavra] += 1
+        else:
+            frequencia[palavra] = 1
+    return frequencia
 
 def main():
     texto = "Python é uma linguagem de programação. Python é amplamente utilizado para desenvolvimento web, automação e ciência de dados. Python é ótimo!"
     frequencias = contar_frequencia(texto)
     print(frequencias)
-
 
 if __name__ == "__main__":
     main()

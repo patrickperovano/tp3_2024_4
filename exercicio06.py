@@ -22,16 +22,21 @@ Ao final, o programa deve continuar pedindo opções ao usuário até que ele es
 
 
 def adicionar_carro(frota, placa, modelo, ano, quilometragem):
-    pass
-
+    frota[placa] = {'modelo': modelo, 'ano': ano, 'quilometragem': quilometragem}
 
 def listar_carros(frota):
-    pass
-
+    if not frota:
+        print("Nenhum carro registrado na frota.")
+    else:
+        for placa, info in frota.items():
+            print(f"Placa: {placa}, Modelo: {info['modelo']}, Ano: {info['ano']}, Quilometragem: {info['quilometragem']} km")
 
 def atualizar_quilometragem(frota, placa, quilometragem):
-    pass
-
+    if placa in frota:
+        frota[placa]['quilometragem'] = quilometragem
+        print(f"Quilometragem do carro com placa {placa} atualizada para {quilometragem} km.")
+    else:
+        print(f"Carro com placa {placa} não encontrado na frota.")
 
 def main():
     frota = {}
@@ -65,7 +70,6 @@ def main():
 
         else:
             print("Opção inválida!")
-
 
 if __name__ == "__main__":
     main()

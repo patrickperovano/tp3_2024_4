@@ -21,18 +21,19 @@ alunos = [
     {"nome": "Juliana", "idade": 20, "curso": "Química"},
 ]
 
-
 def adicionar_aluno(alunos, nome, idade, curso):
-    pass
-
+    novo_aluno = {"nome": nome, "idade": idade, "curso": curso}
+    alunos.append(novo_aluno)
 
 def remover_aluno(alunos, nome):
-    pass
-
+    for aluno in alunos:
+        if aluno["nome"] == nome:
+            alunos.remove(aluno)
+            break
 
 def listar_alunos(alunos):
-    pass
-
+    for aluno in alunos:
+        print(f"Nome: {aluno['nome']}, Idade: {aluno['idade']}, Curso: {aluno['curso']}")
 
 def main():
     # Teste das funções
@@ -46,7 +47,6 @@ def main():
     remover_aluno(alunos, "Carlos")
     print("\nApós remover Carlos:")
     listar_alunos(alunos)
-
 
 if __name__ == "__main__":
     main()

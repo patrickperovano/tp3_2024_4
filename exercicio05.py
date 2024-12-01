@@ -24,12 +24,14 @@ A saída esperada para a função calcular_media seria 7.0 e para a função alu
 
 
 def calcular_media(turma):
-    return None
-
+    total_notas = sum(turma.values())
+    quantidade_alunos = len(turma)
+    media = total_notas / quantidade_alunos
+    return media
 
 def aluno_aprovado(turma, nota_minima=7):
-    return None
-
+    aprovados = [aluno for aluno, nota in turma.items() if nota >= nota_minima]
+    return aprovados
 
 def main():
     turma = {"Alice": 8, "Bob": 5, "Carlos": 6, "Diana": 9, "Eugenio": 7}
@@ -39,7 +41,6 @@ def main():
 
     aprovados = aluno_aprovado(turma)
     print(f"Alunos aprovados: {aprovados}")
-
 
 if __name__ == "__main__":
     main()

@@ -49,32 +49,62 @@ Exemplo de uso:
 # Mensagem decifrada: "Hello World"
 """
 
+def calcular_frequencia(mensagem):
+    frequencias = {}
+    for char in mensagem:
+        if char.isalpha():
+            if char in frequencias:
+                frequencias[char] += 1
+            else:
+                frequencias[char] = 1
+    return frequencias
+
+def cifra_de_cesar(texto, deslocamento):
+    texto_criptografado = []
+    for char in texto:
+        if char.isalpha():
+            deslocamento_real = deslocamento % 26
+            codigo_base = ord('A') if char.isupper() else ord('a')
+            char_criptografado = chr((ord(char) - codigo_base + deslocamento_real) % 26 + codigo_base)
+            texto_criptografado.append(char_criptografado)
+        else:
+            texto_criptografado.append(char)
+    return ''.join(texto_criptografado)
 
 def quebrar_cifra_cesar(mensagem_cifrada):
-    return None, None
-
+    frequencias = calcular_frequencia(mensagem_cifrada)
+    letra_mais_comum = max(frequencias, key=frequencias.get)
+    
+    letras_frequentes = ['A', 'E', 'O', 'S', 'R', 'I', 'D', 'T', 'N']
+    
+    possiveis_mensagens = []
+    
+    for letra in letras_frequentes:
+        deslocamento = (ord(letra_mais_comum.upper()) - ord(letra.upper())) % 26
+        mensagem_decifrada = cifra_de_cesar(mensagem_cifrada, -deslocamento)
+        possiveis_mensagens.append((deslocamento, mensagem_decifrada))
+    
+    return possiveis_mensagens[0]
 
 def main():
-    mensagem_cifrada = """"
-r phx ilp hylghqwh hud dwdu dv gxdv srqwdv gd ylgd, h uhvwdxudu qd yhoklfh d 
+    mensagem_cifrada = """r phx ilp hylghqwh hud dwdu dv gxdv srqwdv gd ylgd, h uhvwdxudu qd yhoklfh d 
 dgrohvfhqfld. srlv, vhqkru, qdr frqvhjxl uhfrpsru r txh irl qhp r txh ixl. hp 
 wxgr, vh r urvwr h ljxdo, d ilvlrqrpld h glihuhqwh. vh vr ph idowdvvhp rv rxwurv, 
 yd; xp krphp frqvrod-vh pdlv rx phqrv gdv shvvrdv txh shugh; pdlv idowr hx 
 phvpr, h hvwd odfxqd h wxgr. r txh dtxl hvwd h, pdo frpsdudqgr, vhphokdqwh d 
-slqwxud txh vh srh qd edued h qrv fdehorv, h txh dshqdv frqvhuyd r kdelwr 
+slqwxud txh vh srh qd eduded h qrv fdehorv, h txh dshqdv frqvhuyd r kdelwr 
 hawhuqr, frpr vh glc qdv dxwrsvldv; r lqwhuqr qdr djxhqwd wlqwd. xpd fhuwlgdr txh 
 ph ghvvh ylqwh dqrv gh lgdgh srghuld hqjdqdu rv hvwudqkrv, frpr wrgrv rv 
 grfxphqwrv idovrv, pdv qdr d plp. rv dpljrv txh ph uhvwdp vdr gh gdwd 
 uhfhqwh; wrgrv rv dqwljrv irudp hvwxgdu d jhrorjld grv fdpsrv-vdqwrv. txdqwr dv 
 dpljdv, dojxpdv gdwdp gh txlqch dqrv, rxwudv gh phqrv, h txdvh wrgdv fuhhp qd 
 prflgdgh. gxdv rx wuhv iduldp fuhu qhod drv rxwurv, pdv d olqjxd txh idodp reuljd 
-pxlwd yhc d frqvxowdu rv glflrqdulrv, h wdo iuhtxhqfld h fdqvdwlyd.
-"""
+pxlwd yhc d frqvxowdu rv glflrqdulrv, h wdo iuhtxhqfld h fdqvdwlyd."""
+    
     deslocamento, mensagem_decifrada = quebrar_cifra_cesar(mensagem_cifrada)
 
     print(f"Deslocamento: {deslocamento}")
     print(f"Mensagem decifrada: '{mensagem_decifrada}'")
-
 
 if __name__ == "__main__":
     main()

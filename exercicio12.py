@@ -16,10 +16,9 @@ Certifique-se de que a ordem das chaves na lista resultante não importa.
 
 """
 
-
 def encontrar_chaves_comuns(dicionario1, dicionario2):
-    return None
-
+    chaves_comuns = set(dicionario1.keys()) & set(dicionario2.keys())
+    return list(chaves_comuns)
 
 def main():
     dicionario_1 = {"a": 1, "b": 2, "c": 3}
@@ -27,7 +26,6 @@ def main():
 
     chaves_comuns = encontrar_chaves_comuns(dicionario_1, dicionario_2)
     print("Chaves comuns:", chaves_comuns)
-
 
 if __name__ == "__main__":
     main()

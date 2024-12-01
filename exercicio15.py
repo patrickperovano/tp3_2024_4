@@ -11,10 +11,17 @@ A função deve lidar apenas com letras do alfabeto inglês (de A a Z e de a a z
 Abaixo está o esqueleto de código para que você possa implementar a função e testar seu funcionamento.
 """
 
-
 def cifra_de_cesar(texto, deslocamento):
-    return None
-
+    texto_criptografado = []
+    for char in texto:
+        if char.isalpha():
+            deslocamento_real = deslocamento % 26
+            codigo_base = ord('A') if char.isupper() else ord('a')
+            char_criptografado = chr((ord(char) - codigo_base + deslocamento_real) % 26 + codigo_base)
+            texto_criptografado.append(char_criptografado)
+        else:
+            texto_criptografado.append(char)
+    return ''.join(texto_criptografado)
 
 def main():
     # Testes
@@ -23,7 +30,6 @@ def main():
     resultado = cifra_de_cesar(texto, deslocamento)
     print(f"Texto original: {texto}")
     print(f"Texto criptografado: {resultado}")
-
 
 if __name__ == "__main__":
     main()
